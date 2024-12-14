@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
 const MarketingHeader = () => {

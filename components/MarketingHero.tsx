@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import frameCrafter from "@/assets/framecrafters.png"
+import Link from "next/link";
 
 const HeroSection = () => {
   const heroRef = useRef(null);
@@ -38,7 +39,9 @@ const HeroSection = () => {
               where every frame is crafted to inspire and engage.
             </p>
             <div className="flex gap-4 items-center mt-8">
-              <Button className="btn rounded-xl">Start Now</Button>
+              <Link href={"/dashboard"}>
+                <Button className="btn rounded-xl cursor-pointer">Start Now</Button>
+              </Link>
               <button className="gap-1 flex" aria-label="Learn more">
                 <span className="text-black text-base">Learn more</span>
                 <ArrowRight width={15} height={15} color="black" className="mt-1 ml-1" />
@@ -48,7 +51,7 @@ const HeroSection = () => {
 
           {/* Right Section */}
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative lg:left-36">
-              <Image src={frameCrafter} alt="framce craftger icon" width={650} height={650}/>
+            <Image src={frameCrafter} alt="framce craftger icon" width={650} height={650} />
           </div>
         </div>
       </div>

@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { twMerge } from "tailwind-merge";
-import {ClerkProvider} from "@clerk/nextjs";
-import {dark} from "@clerk/themes"
+import Provider from "./provider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,21 +23,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider  
-    afterMultiSessionSingleSignOutUrl={"/"}
-    afterSignOutUrl={"/"}
-    
-    appearance={{
-      baseTheme:dark,
-    }}
+    <ClerkProvider
+      afterMultiSessionSingleSignOutUrl={"/"}
+      afterSignOutUrl={"/"}
+
+      appearance={{
+        baseTheme: dark,
+      }}
     >
-      <html lang="en">
-        <body
-          className={cn(twMerge(inter.className, "antialiased min-h-screen"))}
-        >
-          {children}
-        </body>
-      </html>
+      <Provider>
+        <html lang="en">
+          <body
+            className={cn(twMerge(inter.className, "antialiased min-h-screen"))}
+          >
+            {children}
+          </body>
+        </html>
+      </Provider>
     </ClerkProvider>
   );
 }
